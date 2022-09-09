@@ -1,6 +1,6 @@
 <template>
   <div>
-    1111
+    <div class="x"></div>
   </div>
 </template>
 
@@ -11,5 +11,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import "src/assets/helper.scss";
+.x {
+  width: px(367);
+  height: px(315);
+  border: 1px solid green;
+}
 </style>
