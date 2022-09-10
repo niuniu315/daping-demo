@@ -3,11 +3,16 @@
     <div class="home">
       <header></header>
       <main>
-        <section class="section1"></section>
-        <section class="section2"></section>
-        <section class="section3"></section>
-        <section class="section4"></section>
-        <section class="section5"></section>
+        <section class="section1">
+          <div class="bordered 管辖统计">
+            <h2>案发派出所管辖统计</h2>
+            <div ref={divRef} class="chart"></div>
+          </div>
+        </section>
+        <section class="bordered section2"></section>
+        <section class="bordered section3"></section>
+        <section class="bordered section4"></section>
+        <section class="bordered section5"></section>
       </main>
     </div>
   </div>
@@ -21,17 +26,21 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/helper.scss";
-.layout{
+
+.layout {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
+
 .home {
   flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   background: #010310;
+  color: white;
+
   header {
     height: px(99);
     background: url("../assets/header.png");
@@ -47,12 +56,18 @@ export default {
       "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
     grid-column-gap: px(28);
     grid-row-gap: px(28);
+
     > section {
+      text-align: center;
+    }
+
+    .bordered {
       border: 1px solid #0764bc;
       border-radius: 4px;
       position: relative;
       box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
       background: #0c1139;
+
       &::before {
         content: '';
         position: absolute;
@@ -90,6 +105,29 @@ export default {
 
     > .section5 {
       grid-area: box5;
+    }
+
+    .管辖统计 {
+      height: px(315);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        flex-shrink: 0;
+        border: 1px solid #0a5299;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        font-size: px(22);
+        line-height: px(24);
+        padding: px(10) px(28);
+        text-shadow: 0 0 px(3) white;
+      }
+
+      .chart {
+        flex: 1;
+        width: 100%;
+      }
     }
   }
 }
