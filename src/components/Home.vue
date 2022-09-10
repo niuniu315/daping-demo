@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="x"></div>
+    <div class="home">
+      <header></header>
+    </div>
   </div>
 </template>
 
@@ -12,9 +14,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/helper.scss";
-.x {
-  width: px(367);
-  height: px(315);
-  border: 1px solid green;
+.home{
+  header{
+    height: px(99);
+    background: url("../assets/header.png");
+    background-size: cover;
+  }
 }
 </style>
