@@ -32,43 +32,51 @@ export default {
       const myChart = echarts.init(document.getElementById('mycharts'));
       // 绘制图表
       myChart.setOption({
-        title: {
-          text: '今日话务统计'
+        textStyle: {
+          fontSize: px(12),
+          color: '#79839E'
         },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
+        title: {show: false},
+        legend: {show: false},
+        xAxis: {
+          data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
+          axisTick: {show: false},
+          axisLine: {
+            lineStyle: {color: '#083B70'}
+          },
+          axisLabel: {
+            fontSize: px(12),
+            formatter(val) {
+              if (val.length > 2) {
+                const array = val.split('');
+                array.splice(2, 0, '\n');
+                return array.join('');
+              } else {
+                return val;
+              }
+            }
+          },
         },
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
+          x: px(40),
+          y: px(40),
+          x2: px(40),
+          y2: px(40),
         },
-        xAxis: [
-          {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            axisTick: {
-              alignWithLabel: true
-            }
+        yAxis: {
+          splitLine: {show: false},
+          axisLine: {
+            show: true,
+            lineStyle: {color: '#083B70'}
+          },
+          axisLabel: {
+            fontSize: px(12)
           }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
-        series: [
-          {
-            name: '直接访问',
-            type: 'bar',
-            barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
-          }
-        ]
+        },
+        series: [{
+          type: 'bar',
+          data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+        }]
       });
       window.onresize = function () {
         myChart.resize();
