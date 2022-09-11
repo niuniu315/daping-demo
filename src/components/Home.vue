@@ -6,7 +6,7 @@
         <section class="section1">
           <div class="bordered 管辖统计">
             <h2>案发派出所管辖统计</h2>
-            <div ref={divRef} class="chart"></div>
+            <div id="mycharts" class="chart"></div>
           </div>
         </section>
         <section class="bordered section2"></section>
@@ -19,8 +19,63 @@
 </template>
 
 <script lang="ts">
+import {inject, onMounted} from 'vue';
+import {ref} from 'vue';
+
+const px = (n) => n / 2420 * (window as any).pageWidth;
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    const trafficData = ref({});
+    const echarts = inject('echarts');
+    onMounted(() => {
+      const myChart = echarts.init(document.getElementById('mycharts'));
+      // 绘制图表
+      myChart.setOption({
+        title: {
+          text: '今日话务统计'
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            axisTick: {
+              alignWithLabel: true
+            }
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
+        series: [
+          {
+            name: '直接访问',
+            type: 'bar',
+            barWidth: '60%',
+            data: [10, 52, 200, 334, 390, 330, 220]
+          }
+        ]
+      });
+      window.onresize = function () {
+        myChart.resize();
+      };
+    });
+    return {};
+  }
 };
 </script>
 
