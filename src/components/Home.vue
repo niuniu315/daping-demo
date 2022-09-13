@@ -12,6 +12,9 @@
         <section class="bordered section4"></section>
         <section class="bordered section5"></section>
       </main>
+      <footer>
+        &copy; 兰州公安局 2020-{{ year }}
+      </footer>
     </div>
   </div>
 </template>
@@ -24,6 +27,10 @@ import Chart2 from './charts/Chart2.vue';
 export default {
   name: 'Home',
   components: {Chart2, Chart1},
+  setup() {
+    const year = new Date().getFullYear();
+    return {year};
+  }
 };
 </script>
 

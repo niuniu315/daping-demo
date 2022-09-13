@@ -19,12 +19,27 @@
     height: px(99);
     background: url("../assets/header.png");
     background-size: cover;
+    width: px(2420);
+    margin: 0 auto;
+  }
+
+  > footer {
+    height: px(68);
+    border: 1px solid #0d2d59;
+    margin: px(20) 0 1px;
+    border-radius: 4px;
+    background: #0c0d2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   main {
     flex: 1;
+    width: px(2420);
+    margin: 0 auto;
     display: grid;
-    margin-top: px(30);
+    padding-top: px(30);
     grid-template:
       "box1 box2 box4 box5" 755fr
       "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
