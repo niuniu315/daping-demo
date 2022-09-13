@@ -9,6 +9,7 @@
         </section>
         <section class="section2">
           <Chart3/>
+          <Chart4/>
         </section>
         <section class="bordered section3"></section>
         <section class="bordered section4"></section>
@@ -26,10 +27,11 @@ import '../assets/home.scss';
 import Chart1 from './charts/Chart1.vue';
 import Chart2 from './charts/Chart2.vue';
 import Chart3 from './charts/Chart3.vue';
+import Chart4 from './charts/Chart4.vue';
 
 export default {
   name: 'Home',
-  components: {Chart3, Chart2, Chart1},
+  components: {Chart4, Chart3, Chart2, Chart1},
   setup() {
     const year = new Date().getFullYear();
     return {year};
