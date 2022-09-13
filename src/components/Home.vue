@@ -11,7 +11,9 @@
           <Chart3/>
           <Chart4/>
         </section>
-        <section class="bordered section3"></section>
+        <section class="bordered section3">
+          <Chart5/>
+        </section>
         <section class="bordered section4"></section>
         <section class="bordered section5"></section>
       </main>
@@ -28,10 +30,11 @@ import Chart1 from './charts/Chart1.vue';
 import Chart2 from './charts/Chart2.vue';
 import Chart3 from './charts/Chart3.vue';
 import Chart4 from './charts/Chart4.vue';
+import Chart5 from './charts/Chart5.vue';
 
 export default {
   name: 'Home',
-  components: {Chart4, Chart3, Chart2, Chart1},
+  components: {Chart5, Chart4, Chart3, Chart2, Chart1},
   setup() {
     const year = new Date().getFullYear();
     return {year};
