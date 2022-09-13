@@ -16,6 +16,14 @@
         </section>
         <section class="section4">
           <Chart6/>
+          <div class="bordered 年龄段">
+            <h2>犯罪人员年龄段分布</h2>
+            <div class="charts">
+              <Chart7/>
+              <Chart8/>
+              <Chart9/>
+            </div>
+          </div>
         </section>
         <section class="bordered section5"></section>
       </main>
@@ -34,10 +42,13 @@ import Chart3 from './charts/Chart3.vue';
 import Chart4 from './charts/Chart4.vue';
 import Chart5 from './charts/Chart5.vue';
 import Chart6 from './charts/Chart6.vue';
+import Chart7 from './charts/Chart7.vue';
+import Chart8 from './charts/Chart8.vue';
+import Chart9 from './charts/Chart9.vue';
 
 export default {
   name: 'Home',
-  components: {Chart6, Chart5, Chart4, Chart3, Chart2, Chart1},
+  components: {Chart9, Chart8, Chart7, Chart6, Chart5, Chart4, Chart3, Chart2, Chart1},
   setup() {
     const year = new Date().getFullYear();
     return {year};
