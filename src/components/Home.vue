@@ -37,6 +37,7 @@
             <h2>案发街道统计</h2>
             <div class="charts">
               <Chart12/>
+              <Chart13/>
             </div>
           </div>
           <div class="bordered row3 作案手段">
@@ -65,10 +66,14 @@ import Chart9 from './charts/Chart9.vue';
 import Chart10 from './charts/Chart10.vue';
 import Chart11 from './charts/Chart11.vue';
 import Chart12 from './charts/Chart12.vue';
+import Chart13 from './charts/Chart13.vue';
 
 export default {
   name: 'Home',
-  components: {Chart12, Chart11, Chart10, Chart9, Chart8, Chart7, Chart6, Chart5, Chart4, Chart3, Chart2, Chart1},
+  components: {
+    Chart13,
+    Chart12, Chart11, Chart10, Chart9, Chart8, Chart7, Chart6, Chart5, Chart4, Chart3, Chart2, Chart1
+  },
   setup() {
     const year = new Date().getFullYear();
     return {year};
