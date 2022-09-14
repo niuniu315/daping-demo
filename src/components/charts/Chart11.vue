@@ -56,11 +56,7 @@ export default {
           }
         ]
       }));
-      window.onresize = function () {
-        myChart.resize();
-      };
     });
-    return {};
   }
 };
 </script>

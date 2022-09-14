@@ -47,11 +47,7 @@ export default {
           data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
         }]
       }));
-      window.onresize = function () {
-        myChart.resize();
-      };
     });
-    return {};
   }
 };
 </script>

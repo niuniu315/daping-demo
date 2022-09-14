@@ -81,11 +81,7 @@ export default {
           lineStyle: {width: px(2)}
         }))
       }));
-      window.onresize = function () {
-        myChart.resize();
-      };
     });
-    return {};
   }
 };
 </script>
