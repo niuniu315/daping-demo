@@ -19,9 +19,38 @@ export default {
   name: 'Chart2',
   setup() {
     const echarts = inject('echarts');
+    let myChart = '';
+    //初始数据
+    const data = [
+      {name: '城关区公安局', 2011: 2, 2012: 3},
+      {name: '七里河区公安局', 2011: 2, 2012: 3},
+      {name: '西固区公安局', 2011: 2, 2012: 3},
+      {name: '安宁区公安局', 2011: 2, 2012: 3},
+      {name: '红古区公安局', 2011: 2, 2012: 3},
+      {name: '永登县公安局', 2011: 2, 2012: 3},
+      {name: '皋兰县公安局', 2011: 2, 2012: 3},
+      {name: '榆中县公安局', 2011: 2, 2012: 3},
+      {name: '新区公安局', 2011: 2, 2012: 3},
+    ];
     onMounted(() => {
-      const myChart = echarts.init(document.getElementById('mycharts2'));
-      // 绘制图表
+      // 持续计时器更新数据
+      setInterval(() => {
+        const newData = [
+          {name: '城关区公安局', 2011: Math.random() * 10, 2012: Math.random() * 10},
+          {name: '七里河区公安局', 2011: 2, 2012: Math.random() * 10},
+          {name: '西固区公安局', 2011: Math.random() * 10, 2012: Math.random() * 10},
+          {name: '安宁区公安局', 2011: 2, 2012: Math.random() * 10},
+          {name: '红古区公安局', 2011: 2, 2012: 3},
+          {name: '永登县公安局', 2011: Math.random() * 10, 2012: 3},
+          {name: '皋兰县公安局', 2011: 2, 2012: 3},
+          {name: '榆中县公安局', 2011: 2, 2012: Math.random() * 10},
+          {name: '新区公安局', 2011: 2, 2012: 3},
+        ];
+        x(newData);
+      }, 2000);
+    });
+    // 绘制图表
+    const x = (data) => {
       myChart.setOption(createEchartsOptions({
         ...baseEchartOptions,
         grid: {
@@ -39,8 +68,7 @@ export default {
         yAxis: {
           axisTick: {show: false},
           type: 'category',
-          data: ['城关区公安局', '七里河区公安局', '西固区公安局', '安宁区公安局', '红古区公安局',
-            '永登县公安局', '皋兰县公安局', '榆中县公安局', '新区公安局'],
+          data: data.map(i => i.name),
           axisLabel: {
             formatter(val) {
               return val.replace('公安局', '\n公安局');
@@ -51,7 +79,7 @@ export default {
           {
             name: '2011年',
             type: 'bar',
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            data: data.map(i => i[2011]),
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
@@ -67,7 +95,7 @@ export default {
           {
             name: '2012年',
             type: 'bar',
-            data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+            data: data.map(i => i[2012]),
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
@@ -82,11 +110,12 @@ export default {
           }
         ]
       }));
-      window.onresize = function () {
-        myChart.resize();
-      };
+    };
+    // 渲染初始数据
+    onMounted(() => {
+      myChart = echarts.init(document.getElementById('mycharts2'));
+      x(data);
     });
-    return {};
   }
 };
 </script>
