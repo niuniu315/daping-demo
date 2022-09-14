@@ -25,7 +25,19 @@
             </div>
           </div>
         </section>
-        <section class="bordered section5"></section>
+        <section class="section5">
+          <div class="bordered row1 案发类型">
+            <h2>案发类型统计</h2>
+            <div class="charts"></div>
+          </div>
+          <div class="bordered row2 案发街道">
+            <h2>案发街道统计</h2>
+            <div class="charts"></div>
+          </div>
+          <div class="bordered row3 作案手段">
+            <h2>作案手段分析</h2>
+          </div>
+        </section>
       </main>
       <footer>
         &copy; 兰州公安局 2020-{{ year }}
