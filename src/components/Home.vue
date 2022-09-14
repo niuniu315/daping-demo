@@ -42,6 +42,7 @@
           </div>
           <div class="bordered row3 作案手段">
             <h2>作案手段分析</h2>
+            <Chart14/>
           </div>
         </section>
       </main>
@@ -67,10 +68,12 @@ import Chart10 from './charts/Chart10.vue';
 import Chart11 from './charts/Chart11.vue';
 import Chart12 from './charts/Chart12.vue';
 import Chart13 from './charts/Chart13.vue';
+import Chart14 from './charts/Chart14.vue';
 
 export default {
   name: 'Home',
   components: {
+    Chart14,
     Chart13,
     Chart12, Chart11, Chart10, Chart9, Chart8, Chart7, Chart6, Chart5, Chart4, Chart3, Chart2, Chart1
   },
