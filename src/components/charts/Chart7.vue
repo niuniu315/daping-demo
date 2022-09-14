@@ -23,7 +23,6 @@ export default {
     onMounted(() => {
       const myChart = echarts.init(document.getElementById('mycharts7'));
       // 绘制图表
-      console.log(myChart);
       myChart.setOption(createEchartsOptions({
         color: ['#8D70F8', '#33A4FA'],
         xAxis: {show: false},

@@ -26,7 +26,6 @@ export default {
     onMounted(() => {
       const myChart = echarts.init(document.getElementById('mycharts8'));
       // 绘制图表
-      console.log(myChart);
       myChart.setOption(createEchartsOptions({
         xAxis: {show: false},
         yAxis: {show: false},
